@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 from itertools import combinations
 from datetime import datetime
+from streamlit_gsheets import GSheetsConnection
 
 # ---------- 1. POMOĆNE FUNKCIJE ---------- #
 
@@ -46,7 +47,7 @@ def record_answer():
 def save_to_sheet():
     """Upiši rezultate u Google Sheet (ignoriši grešku ako nema konekcije)."""
     try:
-        conn = st.connection("gsheets", type="gspread")
+        conn = st.connection("gsheets", type=GSheetsConnection)
         df = pd.DataFrame({
             "timestamp": [datetime.utcnow().isoformat(timespec="seconds")],
             **st.session_state["tally"]
