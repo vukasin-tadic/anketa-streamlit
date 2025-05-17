@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from itertools import combinations
 from datetime import datetime
-from streamlit_gsheets import GSheetsConnection
+from st_gsheets_connection import GSheetsConnection
 
 # ---------- 1. POMOĆNE FUNKCIJE ---------- #
 
